@@ -1,0 +1,26 @@
+<p>
+  <b>Title:</b>
+  <%=h @item.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @item.price %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%=h @item.image_url %>
+</p>
+
+<%= link_to 'Back', items_path %>
+ <% if session[:login] == 1 %>
+<%= link_to 'Edit', edit_item_path(@item) %> |
+
+<%end%>
+
