@@ -1,6 +1,4 @@
 class UserController < ApplicationController
-before_filter :authenticate, :only => [:index, :edit, :update]
-before_filter :admin_user,   :only => :destroy
   def new
     @user = User.new
     @title = "Register"
