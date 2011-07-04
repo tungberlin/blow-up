@@ -10,12 +10,12 @@
 
 <p>
   <b>Price:</b>
-  <%=h @item.price %>
+  <%=h @item.price %> Euro
 </p>
 
 <p>
-  <b>Image url:</b>
-  <%=h @item.image_url %>
+  <b>Image :</b><p>
+  <%=h image_tag (@item.image_url,:size => "250x300") %>
 </p>
 
 <%= link_to 'Back', items_path %>
