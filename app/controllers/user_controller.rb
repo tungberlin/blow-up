@@ -26,6 +26,7 @@ def create
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
+    session[:login] = 1
     redirect_to users_path
   end
 

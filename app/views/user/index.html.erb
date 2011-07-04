@@ -1,8 +1,14 @@
 <h1>Users</h1>
 <ol>
 <% @users.each do |user| %>
-  <li><%= user.screen_name %></li>
+  <li><%= user.screen_name %>
+  <% if session[:login] == 1 %>  | 
+    <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{user.screen_name}" %>
+                              <%end%>
+                              </li>
 <% end %>
+
 
 <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>

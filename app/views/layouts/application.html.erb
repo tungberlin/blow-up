@@ -7,7 +7,7 @@
 <body>
 	
     <div id="page">
-      <div id="header"><font color="yellow">Blow UP</font></div>
+      <div id="header"><font color="yellow">We BLOW you UP</font></div>
       <div id="nav">
         <div style="float:left;text-align:left">
 		
@@ -17,7 +17,15 @@
                                                  :action => "about" %> |
           <%= link_to_unless_current "Contact Us",:controller => "site", 
                                                  :action => "contact" %> |
+	  
+	   <% if session[:login] == 1 %>
+	      Admin user successfully logged in.
+	   
+	    
+	    <%else%>
+	      
 	  <% if signed_in? %>
+	   
 <%= link_to "Sign out", signout_path, :method => :delete %>
 <% else %>
 <%= link_to "Sign in", signin_path %> |
@@ -26,19 +34,25 @@
 	                                        :action => "new" %>
 						
 							<%end%>
+							<%end%>
 
 	   </div>
 	
         <div style="text-align:right">
+		  
         
-		  <%= link_to_unless_current "Einkaufskorb",  :controller => "cart", 
-                                                 :action => "index" %> | 
+		  
           <% unless session[:login] %>
+	    
+	    <%= link_to_unless_current "Einkaufskorb",  :controller => "cart", 
+                                                 :action => "index" %> | 
             <%= link_to_unless_current "Admin", :controller => "user", 
                                                    :action => "admin_login" %>
           <% else %>
             <%= link_to_unless_current "Logout", :controller => "user", 
-                                                    :action => "logout" %>
+                                                    :action => "logout" %> |
+	    <%= link_to_unless_current "Users", users_path %>
+	      
           <% end %>
         </div>
       </div>
