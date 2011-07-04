@@ -15,7 +15,8 @@
 
 <p>
   <b>Image :</b><br>
-  <%=h @item.image_url %>
+  <%=h image_tag(@item.image_url,:size=>"250x300") %>
+  
 </p>
 
 <%= link_to 'Back', items_path %>
